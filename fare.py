@@ -22,4 +22,6 @@ def fare_cents(distance_km, rider="adult"):
         raise ValueError(f"unknown rider type: {rider}")
     extra_km = max(0, math.ceil(distance_km - INCLUDED_KM))
     full = BASE_FARE_CENTS + extra_km * PER_EXTRA_KM_CENTS
+    if peak:
+        full += 100
     return int(full * DISCOUNTS[rider])

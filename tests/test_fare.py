@@ -63,3 +63,7 @@ def test_invalid_rider():
     result = fare_cents(distance_km, "pilot")
     # Assert
     assert result == 0
+
+# what should a 5.5 km adult trip cost? (0.5 km over, charged as 1 full km, so 200 + 50 = 250.)
+def test_part_of_a_km_is_charged_as_a_full_km():
+    assert fare_cents(5.5, "adult") == 250

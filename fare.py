@@ -25,3 +25,4 @@ def fare_cents(distance_km, rider="adult", peak=False):
     if peak:
         full += PEAK_SURCHARGE_CENTS
     return int(full * DISCOUNTS[rider])
+

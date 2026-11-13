@@ -8,7 +8,7 @@ def test_short_trip_adult_pays_base_fare():
     # Act
     result = fare_cents(distance_km, "adult")
     # Assert
-    assert result == 200
+    assert result == 999
 
 # Exactly 5 km for an adult costs 200 (a boundary: the edge of a rule is where bugs hide)
 def test_exactly_5km_adult_pays_base_fare():

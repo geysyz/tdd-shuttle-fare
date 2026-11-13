@@ -47,22 +47,14 @@ def test_child_discount():
     assert result == 0
 
 # A distance of −1 raises an error (pytest.raises(ValueError))
-def test_negative_distance():
-    # Arrange
-    distance_km = -1
-    # Act
-    result = fare_cents(distance_km, "adult")
-    # Assert
-    assert result == pytest.raises(ValueError)
+def test_negative_distance_raises_error():
+    with pytest.raises(ValueError):
+        fare_cents(-1, "adult")
 
 # An unknown rider type such as "pilot" raises an error
-def test_invalid_rider():
-    # Arrange
-    distance_km = 20
-    # Act
-    result = fare_cents(distance_km, "pilot")
-    # Assert
-    assert result == 0
+def test_unknown_rider_type_raises_error():
+    with pytest.raises(ValueError):
+        fare_cents(3, "pilot")
 
 # what should a 5.5 km adult trip cost? (0.5 km over, charged as 1 full km, so 200 + 50 = 250.)
 def test_part_of_a_km_is_charged_as_a_full_km():
